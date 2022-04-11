@@ -1,0 +1,17 @@
+﻿
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+
+        @if (@Session["count"] == null)
+        {
+            @Html.ActionLink("Cart", "Myorder", "Cart")
+        }
+        else
+        {
+            @Html.ActionLink("Cart(" + @Session["count"] + ")", "Myorder", "Cart")
+        }
+
+    </li>
+</ul>
+

@@ -1,0 +1,100 @@
+﻿@model SHOPPINGCARTPROJECT.Models.Products
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Adding Products</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnsv').click(function () {
+            SaveProducts();
+        });
+    });
+    function Reset() {
+        $("#CategoryId").val("1");
+        $("#ProductName").val("");
+        $("#Description").val("");
+        $("#Price").val("");
+        $("#Image").val("");
+
+    }
+    function SaveProducts() {
+        var form = new FormData;
+        form.append("CategoryId", $("#CategoryId").val());
+        form.append("ProductName", $("#ProductName").val());
+        form.append("Description", $("#Description").val());
+        form.append("Price", $("#Price").val());
+        form.append("Image", $("#Image").get(0).files[0]);
+
+        $.ajax({
+            async: true,
+            dataType: 'JSON',
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            url: '/Product/Index',
+            data: form,
+            success: function (data) {
+                
+                    alert("Inserted");
+                    Reset();
+                
+            },
+            error: function () {
+                alert("not added");
+            }
+
+        })
+    }
+</script>
+
+<div class="container">
+    <div class="col-md-4">
+        <div class="form-group">
+            Category:
+            @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.SelectProducts, "Value", "Text"), new { @class = "form-control" })
+
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            Product Name:
+            @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            Description:
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            Price:
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            Image:
+            @Html.TextBoxFor(model => model.Image, new { type = "file", @class = "form-control" })
+
+        </div>
+    </div>
+    <div>
+
+        <input type="button" value="Save" name="save" class="btn btn-primary" id="btnsv" />
+        &nbsp;
+        <input type="button" value="Reset" name="reset" class="btn btn-danger" />
+
+    </div>
+
+</div>
+
+

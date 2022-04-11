@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SHOPPINGCARTPROJECT.Models.Shopping>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class = "row"
+     >
+@foreach (var m in Model)
+{
+    <div class="col-md-4">
+        <div class="row" style="margin-top:50px">
+            <h4>
+                <span id="ProductName" style="color:darkred"> @m.ProductName </span>
+            </h4>
+
+        </div>
+        <a href="@Url.Action("GetDescription", "Home",m)">
+            <img class="" src="@Url.Content(@m.Image)" style="overflow: hidden; position: relative; width:200px; height:200px; cursor:pointer" />
+        </a>
+        
+        
+        <p>
+            <a class="btn btn-default" style="margin-left:30px" href="@Url.Action("GetDescription", "Home",m)"> View More» </a>
+        </p>
+        <p>
+            <a id="btn_add" href="@Url.Action("Add", "Cart",m)" class="btn btn-primary" style="margin-left:30px">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
+            </a>
+            &nbsp;
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="@Url.Action("Delete", "Product", new { id = m.ProductId })" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                </a>}
+        </p>
+
+    </div>
+}
+    </div>
+

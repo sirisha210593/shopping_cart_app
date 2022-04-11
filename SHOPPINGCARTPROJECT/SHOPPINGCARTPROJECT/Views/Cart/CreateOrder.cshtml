@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SHOPPINGCARTPROJECT.Models.Order1>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h3><span style="color:black">Your Orders</span></h3></div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">OrderID</th>
+                    <th scope="col">ProductName</th>
+                    <th scope="col">OrderDate</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Payment</th>
+                </tr>
+            </thead>
+            @foreach (var m in Model)
+            {
+
+                <tbody>
+                    <tr>
+                        <td>@m.OrderId</td>
+                        <td>@m.ProductName</td>
+                        <td>@m.OrderDate</td>
+                        <td>@m.Quantity</td>
+                        <td>@m.Total</td>
+                        <td>Paid</td>
+                    </tr>
+
+                </tbody>
+
+            }
+            </table>
+
+       
+        </div>
+</div>
+<div>
+
+    <a id="btn_add" href="@Url.Action("Index", "Home")" class="btn btn-primary" style="margin-left:60px">
+        <span class="glyphicon glyphicon-eye-open"></span> Continue shopping
+    </a>
+    <br />
+    <br />
+
+</div>
+
+
+
+@**@
+
+@*<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate) : @String.Format("{0:MM/dd/yyyy}", Model.OrderDate)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType) : @Html.DisplayFor(model => model.PaymentType)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status) : @Html.DisplayFor(model => model.Status)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName) : @Html.DisplayFor(model => model.CustomerName)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPhone) : @Html.DisplayFor(model => model.CustomerPhone)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerEmail) : @Html.DisplayFor(model => model.CustomerEmail)
+        </dt>*@

@@ -1,0 +1,55 @@
+﻿@model SHOPPINGCARTPROJECT.Models.User
+
+<body>
+    <div>
+        
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EmailId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MobileNumber)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Continue", "Index","Home")
+    </p>
+</body>
+
